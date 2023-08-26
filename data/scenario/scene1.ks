@@ -140,36 +140,48 @@
 #satori
 ・・・・・さて[p]
 
-[chara_mod name="akane" face="default"]
+;[chara_mod name="akane" face="default"]
 
 #satori
 画面をタッチする機能を試そうかしら。[l]
 試しに私の頭を撫でてごらんなさい。[p]
+
 [clickable x="540" y="150" width="200" height="200" target="*Part1" opacity="0" mouseopacity="50" color="0xffffff "]
 [clickable x="540" y="450" width="200" height=" 55" target="*Part2" opacity="0" mouseopacity="50"  color="0xffffff "]
 [s]
 
 *Part1
-[chara_mod  name="smile2_1" face="angry2_2"  ]
+[chara_mod  name="satori" face="smile2_1"  ]
+
+#satori
 そうそう、いい調子よ[p]
+
 @jump target=*common2
 
+
 *Part2
-[chara_mod  name="omg" face="angry2_2"  ]
+
+[chara_mod  name="satori" face="omg1"  ]
+
+#satori
 は・・・・・・？[p]
+
 @jump target=*common2
 
 *common2
+
 [chara_mod  name="satori" face="default"  ]
-えーと、次は画像のボタンを試してみようかしら。[l]
-[r]はい、押してみて[p]
+
+#satori
+えーと、次は画像のボタンを試してみようかしら。[l][r]
+はい、押してみて[p]
 [button target=*common3 x=145 y=195 graphic=button/あいこん.png]
 [s]
 
 *common3
 [cm]
 #satori
-うんうん、大丈夫そうね[p]
+うんうん、大丈夫そうね。[p]
 [s]
 
 #あかね
