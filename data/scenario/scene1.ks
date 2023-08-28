@@ -40,7 +40,7 @@
 ;さとり
 [chara_new  name="satori" storage="chara/satori/satori_1_1.png" jname="さとり"  ]
 
-[chara_face name="satori" face="niyari11_1" storage="chara/satori/satri_11_1.png"]
+[chara_face name="satori" face="niyari11_1" storage="chara/satori/satori_11_1.png"]
 [chara_face name="satori" face="angry2_2" storage="chara/satori/satori_3_2.png"]
 [chara_face name="satori" face="smile2_1" storage="chara/satori/satori_2_1.png"]
 [chara_face name="satori" face="komari2_2" storage="chara/satori/satori_4_2.png"]
@@ -182,7 +182,105 @@
 [cm]
 #satori
 うんうん、大丈夫そうね。[p]
+
+#satori
+次は、ホーム画面的なものをつくってみるわね[p]
+@jump target=*home
+*home
+#satori
+ボタンをおしてみてね
+[button target=*AR enterse=maou_se_system47.ogg leavese=maou_se_system47.ogg clickse=maou_se_system48.ogg enterimg=button/ボタンおためし赤.png clickimg=button/ボタンおためし赤.png hint=AR画面を出します x=145 y=195 graphic=button/ボタンおためし.png]
+
 [s]
+
+*AR
+[cm]
+#satori
+AR機能を試してみましょうか[r][l]
+カメラの使用を許可してね。[p]
+
+@bgcamera mode="back"
+
+#satori
+どうかしら？うまく表示された？[p]
+[chara_move name="satori" left="+=350" anim="true" wait="false" time="200"]
+
+[iscript]
+f.Touch_count = 0
+[endscript]
+
+#satori
+せっかくだし記念撮影でもどうかしら[r]
+私に触れてくれたら表情も変えてあげるわ。[p]
+このメッセージウインドウもかたづけちゃうわね[p]
+@layopt layer=fix visible=false
+;@hidemenubutton
+@layopt layer=message0 visible=false
+
+*ARhome
+@layopt layer=message0 visible=false
+[clickable x="890" y="150" width="200" height="600" target="*AR1" opacity="0" mouseopacity="50" color="0xffffff "]
+[glink x="0" y=" 680" text="もどる" size="10" target="*ARback" color="black" ]
+[s]
+
+*AR1
+[iscript]
+f.Touch_count += 1
+[endscript]
+
+[if exp="f.Touch_count%6 == 0"]
+  [chara_mod  name="satori" face="default"  ]
+
+[elsif exp="f.Touch_count%6 == 1"]
+  [chara_mod  name="satori" face="niyari11_1"  ]
+
+[elsif exp="f.Touch_count%6 == 2"]
+  [chara_mod  name="satori" face="angry2_2"  ]
+
+[elsif exp="f.Touch_count%6 == 3"]
+  [chara_mod  name="satori" face="smile2_1"  ]
+
+[elsif exp="f.Touch_count%6 == 4"]
+  [chara_mod  name="satori" face="komari2_2"  ]
+
+[elsif exp="f.Touch_count%6 == 5"]
+  [chara_mod  name="satori" face="omg1"  ]
+
+[endif]
+@jump target=*ARhome
+
+*ARback
+@layopt layer=message0 visible=true
+
+#satori
+写真撮影はこれでおしまい？
+
+[glink x="500" y="300" text="はい" target="*ARstop" width="100"]
+[glink x="500" y="400" text="いいえ" target="*ARhome" width="100"]
+[s]
+
+*ARstop
+
+@layopt layer=fix visible=true
+;@hidemenubutton
+@layopt layer=message0 visible=true
+
+[chara_move name="satori" left="-=350" anim="true" wait="false" time="200"]
+#satori
+わかったわ[r][l]
+  [chara_mod  name="satori" face="smile2_1"  ]
+かわいく撮れていたかしら？[r][l]
+撮った写真はTwitterなどにアップしてもいいわよ。[p]
+  [chara_mod  name="satori" face="default"  ]
+@stop_bgcamera
+@jump target=*home
+
+
+
+
+
+
+
 
 #あかね
 [cm]
